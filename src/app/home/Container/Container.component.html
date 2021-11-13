@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-3">
+    Home
+  </div>
+  <div class="col-3">
+    Book  
+  </div>
+  <div class="col-3">
+    Upload Book
+  </div>
+  <div class="col-3"></div>
+
+
+<!-- We have to specify the selector in ng-container in case of multiple ng-container -->
+
+   <!-- Row 2 -->
+
+   <div class="col-3">
+     This is an example of single ng-container 
+     <ng-content>
+
+     </ng-content>
+
+   </div>
+
+   <div class="col-3">
+     <ng-content select="[second]">
+
+     </ng-content>
+   </div>
+
+   <div class="col-3">
+     Value for column 3
+   </div>
+
+   <div class="col-3">
+     Blank Section
+   </div>
+</div>

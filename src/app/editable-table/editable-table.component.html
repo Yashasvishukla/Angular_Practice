@@ -1,0 +1,68 @@
+
+<h3>Add Lessons:</h3>
+
+<form #f="ngForm" [formGroup]="form" (ngSubmit)="Details(f.value)">
+  <div class="form-group">
+    <label for="className"> Enter Name of the Class</label>
+    <input class="form-control" id="className" formControlName="name" type="text">
+  </div>
+  <div class="form-group" formArrayName="lessons">
+    <div *ngFor="let lesson of lessons.controls" [formGroup]="lessonForm">
+      <label for="title">Title</label>
+      <input id="title" class="form-control" formControlName="title" type="text">
+
+      <label for="level">Select Level</label>
+      <select name="level" id="level" class="form-control">
+        <option value="beginner"> Beginner</option>
+        <option value="intermediate"> Intermediate </option>
+        <option value="hard"> Hard</option>
+      </select>
+    </div>
+</div>
+<button class="btn btn-primary" type="submit"> Submit</button>
+</form>
+
+
+<button class="btn btn-secondary" (click)="AddLesson()"> Add Lessons</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div [formGroup]="form">
+  <div formArrayName="lessons">
+    <ng-container *ngFor="let lesson of lessons.controls; let i = index">
+      <div class="form-group" [formGroup]="lessonForm">
+       <form>
+        <input class="form-control" type="text" formControlName="title">
+  
+        <select class="form-control" name="level" id="level" formControlName="level">
+          <option value="Beginner"> Beginner</option>
+          <option value="Intermediate"> Intermediate</option>
+          <option value="Hard"> Hard</option>
+        </select>
+       </form>
+
+      </div>
+      <button class="btn btn-danger" (click)="deleteLesson(i)"> DeleteLesson</button>
+    </ng-container>
+  </div>
+</div>
+
+<button class="btn btn-secondary" (click)="AddLesson()"> Add Lessons</button> -->
