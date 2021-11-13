@@ -1,0 +1,38 @@
+<form [formGroup]="form" (ngSubmit)="login()">
+<div *ngIf="form.errors" class="alert alert-danger">
+  Username or password is Invalid
+</div>
+  <div class="form-group">
+    <label for="username">UserName</label>
+    <input class="form-control" id="username" type="text" formControlName="username">
+    <div *ngIf="username.pending"> Checking for uniquness ...</div>
+    <div class="alert alert-danger" *ngIf="username.touched && username.invalid">
+      <div *ngIf="username.errors.usernameRequired">UserName is required && Min Length Expected is {{username.errors.expectedLength}}</div>
+      <div *ngIf="username.errors.minlength">UserName should contain atleast 3 Characters</div>
+      <div *ngIf="username.errors.cannotContainSpace">UserName cannot contain space</div>
+      <div *ngIf="username.errors.shouldBeUnique">UserName Should be Unique</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input class="form-control" id="password" type="password" formControlName="password">
+  </div>
+
+  <div formGroupName="account">
+    <div class="form-group" >
+      <label for="accNo">Account Number</label>
+      <input type="text" class="form-control" id="accNo" formControlName="accountNumber">
+  
+      <div class="alert alert-danger" *ngIf="accountNo.touched && accountNo.invalid">
+        <div *ngIf="accountNo.errors.required"> Account Number is Required</div>
+        <div *ngIf="accountNo.errors.minlength"> Please enter {{accountNo.errors.minlength.requiredLength}} digits of Account No</div>
+      </div>
+      
+      <label for="custId">Customer ID</label>
+      <input type="text" class="form-control" id="custId" formControlName="customerId">
+    </div>
+  </div>
+
+  <button class="btn btn-primary" type="submit" > SignUp </button>
+</form>
