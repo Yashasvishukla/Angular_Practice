@@ -1,0 +1,39 @@
+<p [class]="{
+  'text-color': applyTextColor
+}" [ngStyle]="{ 'color' : 'blue' , 'background-color' : 'red'}">
+  communication component and {{childMessage| Json: 'arg1'}}!
+</p>
+
+
+<button (click)="sendMessage()" >Send Message to Parent</button>
+
+
+
+<h2>Content Projection will be pojected here </h2>
+
+<ng-content select="[main_projection]"></ng-content>
+
+<h2>Second Projection Content</h2>
+<ng-content select="[main_projection1]"></ng-content>
+
+
+
+<h2>Third Projection Content</h2>
+<ng-content select="[main_projection2]"></ng-content>
+ 
+
+
+<!-- Make sure to use the square brackets to give the select name inside the ng-content -->
+
+
+<h2>Child Component Routing Example</h2>
+
+<nav>
+  <ul>
+    <li><a routerLink="child-a" routerLinkActive="active"> Child A Navigation</a></li>
+    <li><a routerLink="child-b" routerLinkActive="active"> Child B Navigation</a></li>
+  </ul>
+</nav>
+
+
+<router-outlet></router-outlet>
