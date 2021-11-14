@@ -11,9 +11,12 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { EditableTableComponent } from './editable-table/editable-table.component';
 import { BookModule } from './book/book.module';
 import { SharedModule } from './shared/shared.module';
+import { AngularFreecodecampModule } from './angular-freecodecamp/angular-freecodecamp.module';
+import { FormsPracticeModule } from './forms-practice/forms-practice.module';
+
 
 @NgModule({
-  declarations: [						
+  declarations: [							
       AppComponent,
       LoginComponent,
       ReactiveFormComponent,
@@ -26,7 +29,9 @@ import { SharedModule } from './shared/shared.module';
     RoutingModule,
     HomeModule,
     BookModule,
-    SharedModule
+    SharedModule,
+    AngularFreecodecampModule,
+    FormsPracticeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

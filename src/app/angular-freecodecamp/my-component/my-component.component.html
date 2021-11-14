@@ -1,0 +1,53 @@
+<p>
+  my-component works!
+</p>
+
+
+<app-communication [message]="'This message is coming from parent component'"
+  (childToParentMessage)="messageFromChild($event)">
+ <h2 main_projection>This is the projection content comming for the Parent Component</h2>
+ <h2 main_projection1>This is the projection content 1 comming for the Parent Component</h2>
+ <h2 main_projection2 >This is the projection content 2 comming for the Parent Component</h2>
+</app-communication>
+
+
+<div *ngIf="childmessage">
+  <h1>{{childmessage}}</h1>
+</div>
+
+<div *ngIf="this.communicationComp.childMessgeString">
+  <h1>{{this.communicationComp.childMessgeString}}</h1>
+</div>
+
+
+
+
+<app-sizer [(size)]="fontSizepx"></app-sizer>
+<div [ngStyle]="{'font-size.px': fontSizepx}">Resizible text</div>
+
+
+
+<div [appHighlighter]="'red'">Directive example</div>
+
+
+
+<h2>Swith case directive example</h2>
+
+<div [ngSwitch]="item.name">
+  <div *ngSwitchCase="'Bob'">output</div>
+  <div *ngSwitchDefault>Yashasvi</div>
+
+
+
+
+<div>Angular Routing Example</div>
+
+<nav>
+  <ul>  
+    <li> <a [routerLink]="['/comm']" routerLinkActive="active" >Communication Component</a></li>
+    <li> <a [routerLink]="['/comp']" routerLinkActive="active" >My Component</a></li>
+  </ul>
+</nav>
+
+
+<router-outlet></router-outlet>
